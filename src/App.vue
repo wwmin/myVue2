@@ -2,6 +2,7 @@
   <div id="app">
     <img class="logo" src="./assets/logo.png">
     <hello></hello>
+    <my-table></my-table>
     <p>
       Welcome to your Vue.js app!
     </p>
@@ -24,10 +25,11 @@
 
 <script>
 import Hello from './components/Hello'
-
+import myTable from './components/myTable.vue'
 export default {
   components: {
-    Hello
+    Hello,
+    myTable
   }
 }
 </script>
