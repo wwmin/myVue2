@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <my-table></my-table>
+    <my-nav></my-nav>
+    <div style="float:right;position: absolute;">
+      <my-vertical-nav></my-vertical-nav>
+    </div>
+    <div >
+      <img class="logo" src="./assets/logo.png">
+      <hello></hello>
+      <my-table></my-table>
+    </div>
+
     <p>
       Welcome to your Vue.js app!
     </p>
@@ -24,43 +31,48 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
-import myTable from './components/myTable.vue'
-export default {
-  components: {
-    Hello,
-    myTable
+  import myNav from './components/nav.vue'
+  import myVerticalNav from './components/navVertical.vue'
+  import Hello from './components/Hello'
+  import myTable from './components/myTable.vue'
+  export default {
+    components: {
+      myNav,
+      myVerticalNav,
+      Hello,
+      myTable
+    }
   }
-}
 </script>
 
 <style>
-html {
-  height: 100%;
-}
+  html {
+    height: 100%;
+  }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
+  #app {
+    color: #2c3e50;
+    margin-top: -100px;
+    max-width:100%;
+    /*max-width: 800px;*/
+    font-family: Source Sans Pro, Helvetica, sans-serif;
+    text-align: center;
+  }
 
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
+  #app a {
+    color: #42b983;
+    text-decoration: none;
+  }
 
-.logo {
-  width: 100px;
-  height: 100px
-}
+  .logo {
+    width: 100px;
+    height: 100px
+  }
 </style>
