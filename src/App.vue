@@ -35,6 +35,8 @@
   /*两种引入外部模块的方案*/
   var module = require('./assets/lib/myUtiles').default; //第一种 用变量接收 require进来的外部模块导出的值
   import  {sqrt, square} from './assets/lib/bar' //第二种 用import添加模块变量
+  import  {sqrt as sq, square as squ} from './assets/lib/bar' //第三种 用变量名替换原来的变量名
+  import * as obj from './assets/lib/bar' //第四种 统一导入所有变量，然后赋予别名也就是包含了所有变量的对象，访问此别名对象即可得到原来模块中的变量
 
   import myNav from './components/nav.vue'
   import myVerticalNav from './components/navVertical.vue'
@@ -44,6 +46,10 @@
     mounted(){
 
       console.log(square(3));
+      console.log(squ(3));
+      console.log(obj);
+      console.log(obj.sqrt(5));
+      console.log(obj.square(222));
       console.log(module);
       module.CoolModule().doSomething();
     },
