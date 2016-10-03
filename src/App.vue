@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <my-nav></my-nav>
-    <div style="float:right;position: absolute;">
-      <my-vertical-nav></my-vertical-nav>
-    </div>
-    <div >
+
+    <!--<div style="float:right;position: absolute;">-->
+    <!--<my-vertical-nav></my-vertical-nav>-->
+    <!--</div>-->
+    <div>
+      <my-nav></my-nav>
       <img class="logo" src="./assets/logo.png">
       <hello></hello>
-      <my-table></my-table>
+      <!--<my-table></my-table>-->
     </div>
 
     <p>
@@ -31,11 +32,21 @@
 </template>
 
 <script>
+  /*两种引入外部模块的方案*/
+  var module = require('./assets/lib/myUtiles').default; //第一种 用变量接收 require进来的外部模块导出的值
+  import  {sqrt, square} from './assets/lib/bar' //第二种 用import添加模块变量
+
   import myNav from './components/nav.vue'
   import myVerticalNav from './components/navVertical.vue'
   import Hello from './components/Hello'
   import myTable from './components/myTable.vue'
   export default {
+    mounted(){
+
+      console.log(square(3));
+      console.log(module);
+      module.CoolModule().doSomething();
+    },
     components: {
       myNav,
       myVerticalNav,
@@ -60,7 +71,7 @@
   #app {
     color: #2c3e50;
     margin-top: -100px;
-    max-width:100%;
+    max-width: 100%;
     /*max-width: 800px;*/
     font-family: Source Sans Pro, Helvetica, sans-serif;
     text-align: center;
